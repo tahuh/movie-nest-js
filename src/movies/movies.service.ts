@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movies.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 import { Movie } from './entities/movie.entity';
 
 // A service is where the business logic goes on here
@@ -33,7 +34,7 @@ export class MoviesService {
         })
     }
 
-    updateMovie(id: number, updateData : CreateMovieDto) {
+    updateMovie(id: number, updateData : UpdateMovieDto) {
         const movie = this.getOne(id);
         this.deleteOne(id);
         this.movies.push({...movie, ...updateData})
