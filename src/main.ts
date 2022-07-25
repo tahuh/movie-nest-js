@@ -6,7 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // adding a pipe (this is a middleware in express js)
   app.useGlobalPipes(
-    new ValidationPipe()
+    new ValidationPipe({
+      whitelist:true,
+      forbidNonWhitelisted:true
+    })
   )
   await app.listen(3000);
 }
