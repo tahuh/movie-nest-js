@@ -12,17 +12,17 @@ export class MoviesService {
         return this.movies;
     }
 
-    getOne(id: string) : Movie {
-        const movie = this.movies.find(movie => movie.id === parseInt(id));
+    getOne(id: number) : Movie {
+        const movie = this.movies.find(movie => movie.id === id);
         if(!movie) {
             throw new NotFoundException(`Movie id ${id} is not exist`);
         }
         return movie;
     }
 
-    deleteOne(id: string) {
+    deleteOne(id: number) {
         this.getOne(id);
-        this.movies = this.movies.filter(movie => movie.id !== +id);
+        this.movies = this.movies.filter(movie => movie.id !== id);
         
     }
 
@@ -33,7 +33,7 @@ export class MoviesService {
         })
     }
 
-    updateMovie(id: string, updateData : CreateMovieDto) {
+    updateMovie(id: number, updateData : CreateMovieDto) {
         const movie = this.getOne(id);
         this.deleteOne(id);
         this.movies.push({...movie, ...updateData})
