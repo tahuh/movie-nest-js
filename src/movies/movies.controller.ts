@@ -3,8 +3,10 @@ import { CreateMovieDto } from './dto/create-movies.dto';
 import { Movie } from './entities/movie.entity';
 import { MoviesService } from './movies.service';
 
+// Here the 'movies' is the main router that this module uses
 @Controller('movies')
 export class MoviesController {
+    // A controller in NestJS is something like a routers in expressJS
     constructor(private readonly moviesService : MoviesService) {}
 
     @Get()

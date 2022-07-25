@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movies.dto';
 import { Movie } from './entities/movie.entity';
 
+// A service is where the business logic goes on here
+
 @Injectable()
 export class MoviesService {
     private movies : Movie[] = [];
